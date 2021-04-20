@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title>Email Display</title>
+</head>
+<body>
+<div class="container">
+    <div class="row col-md-4 col-md-offset-3">
+        <br>
+
+        {% for one_email in emails %}
+        <div class="panel panel-primary ">
+            <div class="panel-heading text-center">
+                 <h1>Email ID: {{one_email['id']}}</h1>
+            </div>
+            <div class="panel-body">
+                <h1> Name: {{one_email['email']}}</h1>
+
+        </div>
+        {% endfor %}
+    </div>
+    {% with messages = get_flashed_messages()%}
+    {% if messages %}
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor%}
+    {% endif%}
+{% endwith%}
+    <a href="/" class="btn btn-primary">Return Home</a>
+</div>
+
+    
+</body>
+</html>
